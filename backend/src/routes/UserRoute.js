@@ -13,7 +13,7 @@ import authenticationCheckFor2FA from "../middlewares/authenticationCheckFor2FA.
 
 export const UserRouter = Router();
 
-UserRouter.post("/register", register);
+UserRouter.post("/register", register); // Create Register Route
 UserRouter.post("/login", passport.authenticate("local"), login);
 UserRouter.get("/status", authStatus);
 UserRouter.post("/logout", logout);
