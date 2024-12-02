@@ -36,6 +36,22 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
+app.get("/", (req, res) => {
+  return res.json({
+    message: "Welcome to My API",
+    endpoints: {
+      auth: {
+        register: "/api/auth/register",
+        login: "/api/auth/login",
+        authStatus: "/api/auth/auth-status",
+        logout: "/api/auth/logout",
+        setup2FA: "/api/auth/setup-2fa",
+        verify2FA: "/api/auth/verify-2fa",
+        reset2FA: "/api/auth/reset-2fa",
+      },
+    },
+  });
+});
 app.use("/api/auth/", UserRouter);
 
 app.listen(PORT, (req, res) => {
